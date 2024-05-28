@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}
+    {{ sortie.name }} | {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <h2>{{ sortie.nom }}</h2>
+    <div>{{ sortie.dateHeureDebut }}</div>
+    <div>{{ sortie.duree }}</div>
+    <div>{{ sortie.dateLimiteInscription }}</div>
+    <div>{{ sortie.nbInscriptionsMax }}</div>
+    <div>{{ sortie.infosSorties }}</div>
+    <div>{{ sortie.etat }}</div>
+{% endblock %}

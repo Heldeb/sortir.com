@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="sorties-list">
+        {% for sortie in sorties %}
+            <article>
+                <a href="{{ path('sortie_details', {'id': sortie.id}) }}" title="View sortie's details">
+                    <img src="{{ asset('' ~ sortie.poster) }}" alt="{{ sortie.name }}">
+                </a>
+            </article>
+        {% endfor %}
+    </section>
+{% endblock %}
+
+{% block title %}
+    The best sorties | {{ parent() }}
+{% endblock %}
