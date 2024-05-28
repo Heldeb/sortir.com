@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ParticipantRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ParticipantRepository::class)]
@@ -37,8 +39,21 @@ class Participant
     #[ORM\Column]
     private ?bool $actif = null;
 
-    #[ORM\Column]
-    private ?int $sites_no_site = null;
+    #[ORM\ManyToOne(inversedBy: 'participants')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Site $site = null;
+
+    /**
+     * @var Collection<int, Inscription>
+     */
+    #[ORM\OneToMany(targetEntity: Inscription::class, mappedBy: 'participant')]
+    private Collection $inscription;
+
+    public function __construct()
+    {
+        $this->inscription = new ArrayCollection();
+    }
+
 
     public function getId(): ?int
     {
@@ -141,15 +156,47 @@ class Participant
         return $this;
     }
 
-    public function getSitesNoSite(): ?int
+    public function getSite(): ?Site
     {
-        return $this->sites_no_site;
+        return $this->site;
     }
 
-    public function setSitesNoSite(int $sites_no_site): static
+    public function setSite(?Site $site): static
     {
-        $this->sites_no_site = $sites_no_site;
+        $this->site = $site;
 
         return $this;
     }
+
+    /**
+     * @return Collection<int, Inscription>
+     */
+    public function getInscription(): Collection
+    {
+        return $this->inscription;
+    }
+
+    public function addInscription(Inscription $inscription): static
+    {
+        if (!$this->inscription->contains($inscription)) {
+            $this->inscription->add($inscription);
+            $inscription->setParticipant($this);
+        }
+
+        return $this;
+    }
+
+    public function removeInscription(Inscription $inscription): static
+    {
+        if ($this->inscription->removeElement($inscription)) {
+            // set the owning side to null (unless already changed)
+            if ($inscription->getParticipant() === $this) {
+                $inscription->setParticipant(null);
+            }
+        }
+
+        return $this;
+    }
+
+
 }
