@@ -1,3 +1,5 @@
+<?php
+
 // src/Controller/MainController.php
 namespace App\Controller;
 
