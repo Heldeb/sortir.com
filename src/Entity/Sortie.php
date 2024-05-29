@@ -32,9 +32,6 @@ class Sortie
     #[ORM\Column(length: 500, nullable: true)]
     private ?string $descriptioninfos = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?int $etatsortie = null;
-
     #[ORM\Column(length: 250)]
     private ?string $urlPhoto = null;
 
@@ -127,18 +124,6 @@ class Sortie
     public function setDescriptioninfos(?string $descriptioninfos): static
     {
         $this->descriptioninfos = $descriptioninfos;
-
-        return $this;
-    }
-
-    public function getEtatsortie(): ?int
-    {
-        return $this->etatsortie;
-    }
-
-    public function setEtatsortie(?int $etatsortie): static
-    {
-        $this->etatsortie = $etatsortie;
 
         return $this;
     }

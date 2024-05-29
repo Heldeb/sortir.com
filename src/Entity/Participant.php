@@ -194,9 +194,6 @@ class Participant
                 $inscription->setParticipant(null);
             }
         }
-
         return $this;
     }
-
-
 }
