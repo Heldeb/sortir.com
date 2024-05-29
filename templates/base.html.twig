@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Sortie.com Have fun !{% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="{{ path('main_home') }}">Accueil</a></li>
+            <!-- Ajoutez d'autres liens ici -->
+        </ul>
+    </nav>
+</header>
+<main>
+    {% block body %}{% endblock %}
+</main>
+<footer>
+    <div>&copy; {{ "now"|date("Y") }} Sortie.com</div>
+</footer>
+</body>
+</html>

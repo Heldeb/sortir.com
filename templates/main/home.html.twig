@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+    <h1>{{ titre }}</h1>
+    <p>Bienvenue sur la page d'accueil</p>
+
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {{ form_start(loginForm) }}
+    <div class="form-group">
+        {{ form_label(loginForm.username) }}
+        {{ form_widget(loginForm.username, {'attr': {'class': 'form-control', 'value': last_username}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(loginForm.password) }}
+        {{ form_widget(loginForm.password, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_widget(loginForm.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+    </div>
+    {{ form_end(loginForm) }}
+{% endblock %}
