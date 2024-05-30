@@ -1,20 +1,68 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}
-    {{ sortie.nom }} | {{ parent() }}
-{% endblock %}
+{% block title %}Filtrer les sorties{% endblock %}
 
 {% block body %}
-    <h2>Je suis en train de faire le formulaire</h2>
-    {#
-    <h2>{{ sortie.nom }}</h2>
-    <div>{{ sortie.lieuId }}</div>
-    <div>{{ sortie.siteId }}</div>
-    <div>{{ sortie.etatId }}</div>
-    <div>{{ sortie.datedebut }}</div>
-    <div>{{ sortie.duree }}</div>
-    <div>{{ sortie.dateLimiteInscription }}</div>
-    <div>{{ sortie.nbinscriptionsmax }}</div>
-    <div>{{ sortie.descriptioninfos }}</div>
+    {# <form method="post">
+
+
+    TODO : les liens Villes et Sites sont accessibles uniquement en tant qu'administrateur
+
+{% if error %}
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
+        {% if app.user %}
+            <div class="mb-3">
+                You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+            </div>
+        {% endif %}
+
+
+        <h1>Filtrer les sorties</h1>
+
+        <input type="text" id="le_nom_contient"
+
+
+        <label for="inputPseudo">Site :</label>
+        <input type="text" value="{{ last_username }}" name="pseudo" id="inputPseudo" class="form-control" autocomplete="username" required autofocus>
+        <label for="inputPassword">Password</label>
+        <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+
+        <input type="hidden" name="_csrf_token"
+               value="{{ csrf_token('authenticate') }}"
+        >
+
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" name="si_organisateur">
+                Sorties dont je suis l'organisateur/trice
+            </label>
+            <label>
+                <input type="checkbox" name="si_inscrit">
+                Sorties auxquelles je suis inscrit/e
+            </label>
+            <label>
+                <input type="checkbox" name="si_pas_inscrit">
+                Sorties auxquelles je ne suis pas inscrit/e
+            </label>
+            <label>
+                <input type="checkbox" name="sorties_passees">
+                Sorties passées
+            </label>
+        </div>
+
+
+
+
+        <button class="btn btn-lg btn-primary" type="submit">
+            Rechercher
+        </button>
+    </form>
+
     #}
+<h1>    OUI OUI OUI ...
+    Y A DES CHOSES QUI ARRIVENT ICI !
+    NE T'EN FAIS PAS !</h1>
+
 {% endblock %}
