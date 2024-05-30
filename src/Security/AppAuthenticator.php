@@ -2,6 +2,8 @@
 
 namespace App\Security;
 
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,9 +25,12 @@ class AppAuthenticator extends AbstractLoginFormAuthenticator implements Passwor
 
     public const LOGIN_ROUTE = 'app_login';
 
-    public function __construct(private UrlGeneratorInterface $urlGenerator)
+    public function __construct(private UrlGeneratorInterface $urlGenerator,
+                                private readonly EntityManagerInterface $entityManager)
     {
+
     }
+
 
     public function authenticate(Request $request): Passport
     {

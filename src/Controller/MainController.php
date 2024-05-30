@@ -13,4 +13,16 @@ class MainController extends AbstractController
     {
         return $this->render('main/home.html.twig');
     }
+
+    #[Route('/villes', name: 'main_villes')]
+    public function ville(): Response
+    {
+        return $this->render('main/villes.html.twig');
+    }
+
+    #[Route('/sites', name: 'main_sites')]
+    public function site(): Response
+    {
+        return $this->render('main/sites.html.twig');
+    }
 }

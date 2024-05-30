@@ -1,6 +1,13 @@
 <nav>
     <ul>
         <li><a href="{{ path('main_home') }}" title="Accueil">Accueil</a></li>
+
         <li><a href="{{ path('sortie_list') }}" title="Sorties">Sorties</a></li>
+        {% if app.user %}
+        <li><a href="{{ path('sortie_create') }}" title="Créer une nouvelle sortie">Créer une sortie</a></li>
+        {% else %}
+        <li><a href="{{ path('app_login') }}" title="Login">Login</a></li>
+        <li><a href="{{ path('app_register') }}" title="Create account">Register</a></li>
+        {% endif %}
     </ul>
 </nav>
