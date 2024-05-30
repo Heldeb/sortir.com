@@ -5,7 +5,7 @@
         {% for sortie in sorties %}
             <article>
                 <a href="{{ path('sortie_details', {'id': sortie.id}) }}" title="View sortie's details">
-                    <img src="{{ asset('' ~ sortie.poster) }}" alt="{{ sortie.name }}">
+                    {# <img src="{{ asset('' ~ sortie.poster) }}" alt="{{ sortie.name }}"> #}
                 </a>
             </article>
         {% endfor %}

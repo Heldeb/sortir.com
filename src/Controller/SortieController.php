@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\SortieRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -13,14 +14,14 @@ class SortieController extends AbstractController
 {
     #[Route('', name: 'list')]
 
-    public function list(): Response
+    public function list(SortieRepository $sortieRepository): Response
     {
 
-        // TODO : aller chercher les sorties en BDD
-
+        //$sorties = $sortieRepository->findBy([], ['idSite' => 'ASC', 'vote' => 'DESC'], 30);
         return $this->render('sortie/list.html.twig');
     }
-    
+
+    /*
     #[Route('/details/{id}', name: 'details')]
         
     public function details(): Response
@@ -30,4 +31,5 @@ class SortieController extends AbstractController
 
         return $this->render('sortie/details.html.twig');
     }
+        */
 }

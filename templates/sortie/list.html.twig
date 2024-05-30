@@ -1,16 +1,20 @@
 {% extends 'base.html.twig' %}
 
-
 {% block title %}
-    {{ sortie.name }} | {{ parent() }}
+    {{ sortie.nom }} | {{ parent() }}
 {% endblock %}
 
 {% block body %}
+    <h2>Je suis en train de faire le formulaire</h2>
+    {#
     <h2>{{ sortie.nom }}</h2>
-    <div>{{ sortie.dateHeureDebut }}</div>
+    <div>{{ sortie.lieuId }}</div>
+    <div>{{ sortie.siteId }}</div>
+    <div>{{ sortie.etatId }}</div>
+    <div>{{ sortie.datedebut }}</div>
     <div>{{ sortie.duree }}</div>
     <div>{{ sortie.dateLimiteInscription }}</div>
-    <div>{{ sortie.nbInscriptionsMax }}</div>
-    <div>{{ sortie.infosSorties }}</div>
-    <div>{{ sortie.etat }}</div>
+    <div>{{ sortie.nbinscriptionsmax }}</div>
+    <div>{{ sortie.descriptioninfos }}</div>
+    #}
 {% endblock %}
