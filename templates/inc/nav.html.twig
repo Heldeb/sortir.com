@@ -1,8 +1,8 @@
 <nav>
     <ul>
         <li><a href="{{ path('main_home') }}" title="Accueil">Accueil</a></li>
-
         <li><a href="{{ path('sortie_list') }}" title="Sorties">Sorties</a></li>
+        <li><a href="{{ path('main_test') }}" title="test">Test d'Hélène</a></li>
         {% if app.user %}
         <li><a href="{{ path('sortie_create') }}" title="Créer une nouvelle sortie">Créer une sortie</a></li>
         {% else %}
