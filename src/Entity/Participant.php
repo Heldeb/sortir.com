@@ -6,10 +6,13 @@ use App\Repository\ParticipantRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: ParticipantRepository::class)]
-class Participant implements UserInterface
+#[UniqueEntity(fields: ['pseudo'], message: 'There is already an account with this pseudo')]
+class Participant implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -32,7 +35,7 @@ class Participant implements UserInterface
     private ?string $mail = null;
 
     #[ORM\Column(length: 20)]
-    private ?string $mot_de_passe = null;
+    private ?string $password = null;
 
     #[ORM\Column]
     private ?bool $administrateur = null;
@@ -121,14 +124,14 @@ class Participant implements UserInterface
         return $this;
     }
 
-    public function getMotDePasse(): ?string
+    public function getPassword(): ?string
     {
-        return $this->mot_de_passe;
+        return $this->password;
     }
 
-    public function setMotDePasse(string $mot_de_passe): static
+    public function setPassword(string $password): static
     {
-        $this->mot_de_passe = $mot_de_passe;
+        $this-> password = $password;
 
         return $this;
     }
@@ -200,7 +203,6 @@ class Participant implements UserInterface
 
     public function getRoles(): array
     {
-        $roles = $this->getRoles();
         $roles[] = 'ROLE_USER';
         return array_unique($roles);
     }
@@ -214,4 +216,5 @@ class Participant implements UserInterface
     {
         return(string) $this->pseudo;
     }
+
 }

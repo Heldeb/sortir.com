@@ -20,7 +20,7 @@ final class Version20240529125434 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE sortie DROP etatsortie');
+        // $this->addSql('ALTER TABLE sortie DROP etatsortie');
     }
 
     public function down(Schema $schema): void
