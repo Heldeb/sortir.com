@@ -7,12 +7,8 @@
 </head>
 <body>
 <header>
-    <nav>
-        <ul>
-            <li><a href="{{ path('main_home') }}">Accueil</a></li>
-            <!-- Ajoutez d'autres liens ici -->
-        </ul>
-    </nav>
+    <h1><a href="{{ path('main_home') }}"><img src="{{ asset('img/logo-provisoire.jpg') }}" alt="Welcome petit explorateur !"></a></h1>
+    {% include('inc/nav.html.twig') %}
 </header>
 <main>
     {% block body %}{% endblock %}
