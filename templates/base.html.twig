@@ -2,13 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Sortie.com Have fun !{% endblock %}</title>
-    <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
+    <title>{% block title %}Sortir.com Have fun !{% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
 </head>
 <body>
 <header>
-    <h1><a href="{{ path('main_home') }}"><img src="{{ asset('img/logo-provisoire.jpg') }}" alt="Ceci est une phrase qui apparait si le logo ne s'affiche pas !"></a></h1>
-    {% include('inc/nav.html.twig') %}
+    <nav class="navbar">
+        <div class="container">
+            <a href="{{ path('main_home') }}" class="navbar-brand"><img src="{{ asset('img/logo-provisoire.jpg') }}" alt="Logo"></a>
+            <ul class="navbar-nav">
+                <li class="nav-item"><a href="#" class="nav-link">Accueil</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">À propos</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 </header>
 <main>
     {% block body %}{% endblock %}
