@@ -2,6 +2,8 @@
 
 namespace App\Security;
 
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,15 +19,18 @@ use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
 use Symfony\Component\Security\Http\SecurityRequestAttributes;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
 
-class AppAuthenticator extends AbstractLoginFormAuthenticator implements PasswordAuthenticatedUserInterface
+class AppAuthenticator extends AbstractLoginFormAuthenticator
 {
     use TargetPathTrait;
 
     public const LOGIN_ROUTE = 'app_login';
 
-    public function __construct(private UrlGeneratorInterface $urlGenerator)
+    public function __construct(private UrlGeneratorInterface $urlGenerator,
+                                private readonly EntityManagerInterface $entityManager)
     {
+
     }
+
 
     public function authenticate(Request $request): Passport
     {
@@ -59,8 +64,4 @@ class AppAuthenticator extends AbstractLoginFormAuthenticator implements Passwor
         return $this->urlGenerator->generate(self::LOGIN_ROUTE);
     }
 
-    public function getPassword(): ?string
-    {
-        return '';
-    }
 }
