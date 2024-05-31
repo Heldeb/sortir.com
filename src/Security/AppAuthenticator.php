@@ -19,7 +19,7 @@ use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
 use Symfony\Component\Security\Http\SecurityRequestAttributes;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
 
-class AppAuthenticator extends AbstractLoginFormAuthenticator implements PasswordAuthenticatedUserInterface
+class AppAuthenticator extends AbstractLoginFormAuthenticator
 {
     use TargetPathTrait;
 
@@ -64,8 +64,4 @@ class AppAuthenticator extends AbstractLoginFormAuthenticator implements Passwor
         return $this->urlGenerator->generate(self::LOGIN_ROUTE);
     }
 
-    public function getPassword(): ?string
-    {
-        return '';
-    }
 }
