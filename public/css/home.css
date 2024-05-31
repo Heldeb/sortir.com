@@ -1,0 +1,38 @@
+.navbar {
+    background-color: #2ecc71; /* Couleur de fond verte */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre */
+    padding: 10px 0; /* Espacement intérieur */
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand img {
+    height: 40px; /* Hauteur du logo */
+}
+
+.navbar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-item {
+    margin-right: 20px;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #fff;
+    opacity: 0.8;
+}
