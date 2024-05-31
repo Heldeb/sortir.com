@@ -1,68 +1,37 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Filtrer les sorties{% endblock %}
+{% block title %}Notre sélection d'activités !{% endblock %}
 
 {% block body %}
-    {# <form method="post">
 
-
-    TODO : les liens Villes et Sites sont accessibles uniquement en tant qu'administrateur
-
-{% if error %}
-            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-        {% endif %}
-
-        {% if app.user %}
-            <div class="mb-3">
-                You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
-            </div>
-        {% endif %}
-
-
-        <h1>Filtrer les sorties</h1>
-
-        <input type="text" id="le_nom_contient"
-
-
-        <label for="inputPseudo">Site :</label>
-        <input type="text" value="{{ last_username }}" name="pseudo" id="inputPseudo" class="form-control" autocomplete="username" required autofocus>
-        <label for="inputPassword">Password</label>
-        <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
-
-        <input type="hidden" name="_csrf_token"
-               value="{{ csrf_token('authenticate') }}"
-        >
-
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="si_organisateur">
-                Sorties dont je suis l'organisateur/trice
-            </label>
-            <label>
-                <input type="checkbox" name="si_inscrit">
-                Sorties auxquelles je suis inscrit/e
-            </label>
-            <label>
-                <input type="checkbox" name="si_pas_inscrit">
-                Sorties auxquelles je ne suis pas inscrit/e
-            </label>
-            <label>
-                <input type="checkbox" name="sorties_passees">
-                Sorties passées
-            </label>
-        </div>
-
-
-
-
-        <button class="btn btn-lg btn-primary" type="submit">
-            Rechercher
-        </button>
-    </form>
-
-    #}
-<h1>    OUI OUI OUI ...
-    Y A DES CHOSES QUI ARRIVENT ICI !
-    NE T'EN FAIS PAS !</h1>
+    <h1>Notre sélection, pour vous !</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom de la sortie</th>
+                    <th>Date de la sortie</th>
+                    <th>Clôture</th>
+                    <th>Inscrits/places</th>
+                    <th>Etat</th>
+                    <th>Inscrit</th>
+                    <th>Organisateur</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for sortie in sorties %}
+                    <tr>
+                        <td>{{ sortie.nom }}</td>
+                        <td>{{ sortie.datedebut | date('d/m/Y') }}</td>
+                        <td>{{ sortie.datecloture | date('d/m/Y') }}</td>
+                        <td>{{ sortie.nbinscriptionsmax }} / !!!</td>
+                        <td>!!!</td>
+                        <td>!!!</td>
+                        <td>!!!</td>
+                        <td>!!!</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 
 {% endblock %}

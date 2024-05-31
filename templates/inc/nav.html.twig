@@ -1,7 +1,7 @@
 <nav>
     <ul>
         <li><a href="{{ path('main_home') }}" title="Accueil">Accueil</a></li>
-
+        <li><a href="{{ path('sortie_list') }}" title="Liste des activités">Sorties</a></li>
         {% if app.user %}
 
             <li><a href="{{ path('app_profil') }}" title="Mon profil">Mon profil</a> </li>
@@ -13,8 +13,8 @@
         {% endif %}
 
         {% else %}
-        <li><a href="{{ path('app_login') }}" title="Login">Login</a></li>
-        <li><a href="{{ path('app_register') }}" title="Create account">Register</a></li>
+            <li><a href="{{ path('app_login') }}" title="Login">Login</a></li>
+            <li><a href="{{ path('app_register') }}" title="Create account">Register</a></li>
         {% endif %}
     </ul>
 </nav>
