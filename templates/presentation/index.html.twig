@@ -2,6 +2,11 @@
 
 {% block title %}Présentation du site de sorties entre élèves de l'ENI{% endblock %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/presentation.css') }}">
+{% endblock %}
+
 {% block body %}
     <div class="container">
         <h1>Embarquez dans l'aventure !</h1>
@@ -11,11 +16,11 @@
         <ul>
             <li>Créez des moments magiques : Proposez des sorties, des activités délirantes et des rencontres inoubliables.</li>
             <li>Participez à l'action : Rejoignez les sorties les plus funs organisées par d'autres membres et partagez des fous rires à gogo !</li>
-            <li>Échangez et délirez : Utilisez notre forum pour discuter, partager vos anecdotes les plus folles et faire de nouvelles rencontres.</li>
+            <li>Échangez et délirez : Utilisez notre canal Discord pour discuter, partager vos anecdotes les plus folles et faire de nouvelles rencontres.</li>
         </ul>
 
         <h2>Prêt à rejoindre l'aventure ?</h2>
+        <a href="{{ path('presentation') }}" class="btn btn-primary">Inscription</a>
         <p>Inscrivez-vous dès maintenant et embarquez pour un voyage rempli de fun, d'amitié et de découvertes !</p>
-        <a href="{{ path('inscription') }}" class="btn btn-primary">S'inscrire</a>
     </div>
 {% endblock %}
