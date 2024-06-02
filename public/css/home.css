@@ -1,6 +1,7 @@
 body {
     background-color: darkslategrey;
     font-family: "American Typewriter";
+    color: white;
 }
 
 .navbar {
@@ -13,17 +14,23 @@ body {
     border-radius: 20px;
 }
 
-.container {
+.navbar .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 100%;
 }
 
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
 .navbar-brand img {
     height: 100%;
     max-height: 120px;
     border-radius: 100px;
+    margin-left: 20px;
 }
 
 .navbar-nav {
@@ -57,7 +64,13 @@ body {
 h1 {
     margin-top: 20px;
     text-align: center;
-    margin-top: 50px;
+}
+
+.carousel-container {
+    box-shadow: darkslategrey;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 20px;
 }
 
 footer {
